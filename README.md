@@ -30,7 +30,7 @@
   ```bash
   node script.js
   ```
-- create a html file and include script in head tag with `src` to see the output in browser 
+- Create a html file and include script in head tag with `src` to see the output in browser 
   ```html
   <!DOCTYPE html>
   <html lang="en">
@@ -41,7 +41,7 @@
       <script src="script.js"></script>
   </head>
   <body>
-      
+  
   </body>
   </html>
   ```
