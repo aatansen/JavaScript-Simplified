@@ -31,6 +31,9 @@
 
 <details>
 <summary>Functions - Scoping</summary>
+
+- [Normal Functions](#normal-functions)
+
 </details>
 
 <details>
@@ -308,5 +311,45 @@ npm i -g prettier
 	console.log(a+b);
 	console.log(a-b);
 	```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+### Functions - Scoping
+#### Normal Functions
+- Using `function` keyword
+    ```js
+    // Using `function` keyword
+    function sayHi(){
+        console.log("Hi");
+    }
+    sayHi()
+    ```
+- Function parameter/argument
+    ```js
+    // Function parameter sum(a,b) / argument sum(2,4)
+    function sum(a,b){
+        console.log(a+b);
+    }
+    sum(2,4)
+    ```
+- Function output undefined when no argument passed
+    ```js
+    // Create a function that takes one argument (a person name) and print that out
+    function showName(name){
+        console.log(name);
+    }
+    showName("Tansen")
+    showName() // output undefined
+    ```
+- Return function value
+    ```js
+    // Return function value
+    function sum2(a,b){
+        return a+b
+    }
+    let result = sum2(3,4)
+    console.log(result);
+    ```
+    - Anything written after `return a+b` will be skipped
 
   [⬆️ Go to top](#beginner-section-topics)
