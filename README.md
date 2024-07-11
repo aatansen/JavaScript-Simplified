@@ -57,6 +57,7 @@
 <summary>Bonus</summary>
 </details>
 
+## Beginner Section:
 ### Setup
 #### Required programs
 - [Nodejs](https://nodejs.org/en)
@@ -100,212 +101,212 @@ npm i -g prettier
 ### Basic Variables
 #### First variable
 - Using `let` to create a variable
-  ```js
-  let favoriteNumber=7
-  console.log(favoriteNumber);
-  ```
+	```js
+	let favoriteNumber=7
+	console.log(favoriteNumber);
+	```
 - Updating the value of `favoriteNumber`
-  ```js
-  let favoriteNumber=7
-  favoriteNumber=4
-  console.log(favoriteNumber);
-  ```
+	```js
+	let favoriteNumber=7
+	favoriteNumber=4
+	console.log(favoriteNumber);
+	```
 - Log multiple value in console
-  ```js
-  let a=1
-  let b=2
-  let c=3
-  console.log(a,b,c);
-  ```
+	```js
+	let a=1
+	let b=2
+	let c=3
+	console.log(a,b,c);
+	```
 - Assign other variable value
-  ```js
-  let a=1
-  let b=2
-  let c=3
-  console.log(a,b,c);
+	```js
+	let a=1
+	let b=2
+	let c=3
+	console.log(a,b,c);
 
-  let d=a
-  console.log(d);
-  ```
+	let d=a
+	console.log(d);
+	```
 
   [⬆️ Go to top](#beginner-section-topics)
 
 #### Number Type
 - Usage of `typeof`
-  ```js
-  //number type
-  let a=2 
-  let b=1.5
-  console.log(typeof(a),typeof(b));
-  ```
+	```js
+	//number type
+	let a=2 
+	let b=1.5
+	console.log(typeof(a),typeof(b));
+	```
 - Math Operations
-  ```js
-  // math operations
-  let a=2 
-  let b=1.5
-  console.log(a+b);
-  console.log(a-b);
-  console.log(a*b);
-  console.log(a/b);
-  ```
+	```js
+	// math operations
+	let a=2 
+	let b=1.5
+	console.log(a+b);
+	console.log(a-b);
+	console.log(a*b);
+	console.log(a/b);
+	```
 - Sum with rounding issue
-  ```js
-  // sum with rounding issue
-  let c=1.2
-  let d=2.2
-  console.log(c+d);
-  // output: 3.4000000000000004
-  ```
+	```js
+	// sum with rounding issue
+	let c=1.2
+	let d=2.2
+	console.log(c+d);
+	// output: 3.4000000000000004
+	```
 
   [⬆️ Go to top](#beginner-section-topics)
 
 #### String Type
 - Output a simple string
-  ```js
-  // Output a simple string
-  let a= "Hello world"
-  console.log(a);
-  ```
+	```js
+	// Output a simple string
+	let a= "Hello world"
+	console.log(a);
+	```
 - Single and double quote in string
-  ```js
-  // Single and double quote in string
-  let b = "Hello world 'Tansen' "
-  console.log(b);
-  ```
+	```js
+	// Single and double quote in string
+	let b = "Hello world 'Tansen' "
+	console.log(b);
+	```
 - Concat string
-  ```js
-  // Concat string
-  let c = "Hello"
-  let d = "Tansen"
-  console.log(c+" "+d);
-  ```
+	```js
+	// Concat string
+	let c = "Hello"
+	let d = "Tansen"
+	console.log(c+" "+d);
+	```
 - Concat name in string
-  ```js
-  // Concat name in string
-  let name="Tansen"
-  console.log("My name is "+name);
-  ```
+	```js
+	// Concat name in string
+	let name="Tansen"
+	console.log("My name is "+name);
+	```
 
   [⬆️ Go to top](#beginner-section-topics)
 
 #### Boolean Type
 - Boolean true / false
-  ```js
-  // boolean true / false
-  let a=true
-  let b=false
-  console.log(typeof a);
-  console.log(typeof b);
-  ```
+	```js
+	// boolean true / false
+	let a=true
+	let b=false
+	console.log(typeof a);
+	console.log(typeof b);
+	```
 - Boolean logic
-  ```js
-  // boolean logic
-  console.log(true && false);
-  console.log(true || false);
-  console.log((false && false)||true);
-  ```
+	```js
+	// boolean logic
+	console.log(true && false);
+	console.log(true || false);
+	console.log((false && false)||true);
+	```
 - Invert logic with `!`
-  ```js
-  // invert logic with `!`
-  let happy=true
-  let fun=true
-  console.log(happy&&fun);
-  console.log(!happy);
-  console.log(!!fun);
-  ```
+	```js
+	// invert logic with `!`
+	let happy=true
+	let fun=true
+	console.log(happy&&fun);
+	console.log(!happy);
+	console.log(!!fun);
+	```
 
   [⬆️ Go to top](#beginner-section-topics)
 
 #### Null And Undefined Type
 - Null value
-  ```js
-  // null
-  let b=null
-  console.log(b);
-  console.log(typeof b);
-  //null type is object
-  ```
+	```js
+	// null
+	let b=null
+	console.log(b);
+	console.log(typeof b);
+	//null type is object
+	```
 - Undefined value
-  ```js
-  // undefined
-  let a=undefined
-  console.log(a);
-  console.log(typeof a);
-  //undefined type is undefined
-  ```
+	```js
+	// undefined
+	let a=undefined
+	console.log(a);
+	console.log(typeof a);
+	//undefined type is undefined
+	```
 - A variable without a value is `undefined`
-  ```js
-  // a variable without a value is `undefined`
-  let c
-  console.log(c);
-  ```
+	```js
+	// a variable without a value is `undefined`
+	let c
+	console.log(c);
+	```
 
   [⬆️ Go to top](#beginner-section-topics)
 
 #### Variable Comparison
 - Number comparison
-  ```js
-  // number comparison 
-  let a=1
-  let b=2
-  console.log(a==b); // false
-  console.log(a!=b); // true
-  console.log(a>b); // false
-  console.log(a<b); // true
-  ```
+	```js
+	// number comparison 
+	let a=1
+	let b=2
+	console.log(a==b); // false
+	console.log(a!=b); // true
+	console.log(a>b); // false
+	console.log(a<b); // true
+	```
 - String comparison 
-  ```js
-  // string comparison 
-  console.log("a"=="a"); // true
-  console.log("a"=="b"); // false
-  console.log("a"<"b"); // true
-  console.log("a">"b"); // false
-  ```
+	```js
+	// string comparison 
+	console.log("a"=="a"); // true
+	console.log("a"=="b"); // false
+	console.log("a"<"b"); // true
+	console.log("a">"b"); // false
+	```
 - Boolean comparison
-  ```js
-  // boolean comparison
-  console.log(true==true); // true
-  console.log(true==false); // false
-  console.log(false==false); // true
-  ```
+	```js
+	// boolean comparison
+	console.log(true==true); // true
+	console.log(true==false); // false
+	console.log(false==false); // true
+	```
 - Null & undefined comparison
-  ```js
-  // null & undefined comparison
-  console.log(null==null); // true
-  console.log(undefined==undefined); // true
-  console.log(null==undefined); // true
-  ```
+	```js
+	// null & undefined comparison
+	console.log(null==null); // true
+	console.log(undefined==undefined); // true
+	console.log(null==undefined); // true
+	```
 
   [⬆️ Go to top](#beginner-section-topics)
 
 #### Garbage Collection
 - When a variable is no longer used it will cleaned up auto
-  ```js
-  let a = 1
-  console.log(a);
+	```js
+	let a = 1
+	console.log(a);
 
-  let b = 2
-  console.log(b);
-  ```
+	let b = 2
+	console.log(b);
+	```
 
   [⬆️ Go to top](#beginner-section-topics)
 
 #### Comments
 - Single line comment `//`
-  ```js
-  // sum of a,b
-  let a=1
-  let b=2
-  console.log(a+b);
-  ```
+	```js
+	// sum of a,b
+	let a=1
+	let b=2
+	console.log(a+b);
+	```
 - Multi line comment `/**/`
-  ```js
-  /*
-  find sum of a,b
-  find subtraction of a,b
-  */
-  console.log(a+b);
-  console.log(a-b);
-  ```
+	```js
+	/*
+	find sum of a,b
+	find subtraction of a,b
+	*/
+	console.log(a+b);
+	console.log(a-b);
+	```
 
   [⬆️ Go to top](#beginner-section-topics)
