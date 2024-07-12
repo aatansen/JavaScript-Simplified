@@ -33,6 +33,7 @@
 <summary>Functions - Scoping</summary>
 
 - [Normal Functions](#normal-functions)
+- [Passing Functions As Arguments](#passing-functions-as-arguments)
 
 </details>
 
@@ -351,5 +352,64 @@ npm i -g prettier
     console.log(result);
     ```
     - Anything written after `return a+b` will be skipped
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Passing Functions As Arguments
+- Printing function
+    ```js
+    // printing function
+    function printVariable(variable){
+        console.log(variable);
+    }
+    printVariable("A")
+    console.log(printVariable);
+    ```
+- Passing function as argument
+    ```js
+    // passing function as argument
+    function printVariable(variable){
+        console.log(variable);
+    }
+    function func(x){
+        x("Hello")
+    }
+    func(printVariable)
+    ```
+- Callback function
+    ```js
+    // callback function
+    function sumCallback(a,b,callback){
+        // return a+b 
+        callback(a+b)
+    }
+    function handleSum(sum){
+        console.log(sum);
+    }
+    sumCallback(3,4,handleSum)
+    ```
+- Passing callback function
+    ```js
+    // passing callback function
+    function printGreetings(greet){
+        console.log(greet);
+    }
+
+    function helloGreet(name,callback){
+        callback("Hello "+name)
+    }
+    helloGreet("Tansen",printGreetings)
+    ```
+- Passing anonymous function
+    ```js
+    // passing anonymous function
+    function greeting2(name,callback){
+        callback("Hello "+name)
+    }
+
+    greeting2("Tansen",function(name){
+        console.log(name);
+    })
+    ```
 
   [⬆️ Go to top](#beginner-section-topics)
