@@ -35,6 +35,7 @@
 - [Normal Functions](#normal-functions)
 - [Passing Functions As Arguments](#passing-functions-as-arguments)
 - [Arrow Functions](#arrow-functions)
+- [Stack Trace And Call Stack](#stack-trace-and-call-stack)
 
 </details>
 
@@ -476,5 +477,41 @@ npm i -g prettier
     }
     func2(4,num=>console.log(num))
     ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Stack Trace And Call Stack
+- Code debugging
+    ```js
+    // Code debugging 
+    function doStuff(a,b,name){
+        console.log(sum(a,b));
+        console.log(showName(name));
+    }
+
+    function sum(a,b){
+        return a+b
+    }
+
+    function showName(name){
+        gg
+        return "Hi "+name
+    }
+
+    doStuff(1,2,"Tansen")
+    ```
+    - After running this code we can see the error in browser console
+        ```js
+        // Stack Trace (visible in browser)
+        /*
+        Uncaught ReferenceError: gg is not defined
+            at showName (scripts.js:12:5)
+            at doStuff (scripts.js:4:17)
+            at scripts.js:16:1
+        */
+        ```
+    - To see call stack we need to navigate to sources tab in browser
+    - There we can use the breakpoint->`pause on uncaught exception`
+    - Also we can create a breakpoint in code to debug and see how it executed
 
   [⬆️ Go to top](#beginner-section-topics)
