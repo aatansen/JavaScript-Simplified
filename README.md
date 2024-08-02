@@ -36,6 +36,9 @@
 - [Passing Functions As Arguments](#passing-functions-as-arguments)
 - [Arrow Functions](#arrow-functions)
 - [Stack Trace And Call Stack](#stack-trace-and-call-stack)
+- [Hoisting](#hoisting)
+- [Scoping](#scoping)
+- [Closures](#closures)
 
 </details>
 
@@ -513,5 +516,93 @@ npm i -g prettier
     - To see call stack we need to navigate to sources tab in browser
     - There we can use the breakpoint->`pause on uncaught exception`
     - Also we can create a breakpoint in code to debug and see how it executed
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Hoisting
+- Access function before defining it
+- In JavaScript all functions except arrow function are read first
+- It does not work with arrow function because variable never get hoisted
+- Normal function (Hoisting work)
+    ```js
+    // Hoisting
+    console.log(sum(2,3));
+    function sum(a,b){
+        return a+b
+    }
+    ```
+- Arrow function (Hoisting doesn't work)
+    ```js
+    // console.log(sumArrow(3,3)); // error
+    const sumArrow=(a,b)=>{
+        return a+b
+    }
+    ```
+    
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Scoping
+- Entire file is a global scope
+- Where each function has its own scope which is local scope
+    ```js
+    // Scoping
+    function sayHi(name) {
+        console.log("Hi " + name);
+    }
+
+    let name = "Tansen"
+    sayHi(name)
+    ```
+- Locally `a` is not defied or passed in function still find it from global scope
+    ```js
+    // local scope
+    function sayHi2(name) {
+        console.log("Hi " + name + a);
+    }
+
+    let a = 1
+    sayHi2(name)
+    ```
+- Local scope also can be defied using only `{}`
+- There is also nested scope `{{}}`
+    ```js
+    // {} scope
+    {
+        let b= 2
+        console.log(b);
+    }
+    {
+        let c= 4
+        console.log(c);
+        // console.log(b); // error
+    }
+    {
+        let d=5
+        {
+            let e = 6
+            console.log(e,d);
+        }
+    }
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Closures
+- Function return inside a function
+    ```js
+    // Closures
+    function show(variable){
+        let c = 3
+        return function func(variable2){
+            console.log(variable);
+            console.log(variable2);
+            console.log(c);
+            
+        }
+    }
+
+    let a=show(1)
+    a(2)
+    ```
 
   [⬆️ Go to top](#beginner-section-topics)
