@@ -43,6 +43,17 @@
 </details>
 
 <details>
+<summary>Advanced Variables</summary>
+
+- [Const](#const)
+- [Var](#var)
+- [Type Coercion](#type-coercion)
+- [== Vs ===](#double-equal-vs-triple-equal)
+- [NaN](#nan)
+
+</details>
+
+<details>
 <summary>Basic DOM</summary>
 </details>
 
@@ -603,6 +614,166 @@ npm i -g prettier
 
     let a=show(1)
     a(2)
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+### Advanced Variables
+#### Const
+- It hold constant value
+- Not changeable
+    ```js
+    // Const
+    const a = 1
+    // a =2 error
+    console.log(a);
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Var
+- Old way to create variable
+    ```js
+    // Var 
+    var a = 1
+    console.log(a);
+    ```
+- It can break scoping rule
+    ```js
+    // breaking scoping rule
+    {
+        var b = 1
+        console.log(b);
+    }
+    console.log(b);
+    ```
+- Variable get hoisted as `undefined`
+    ```js
+    // hoisted as `undefined`
+    console.log(c);
+    var c = 4
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Type Coercion
+- Number
+    ```js
+    // Number Coercion
+    // int
+    parseInt("123");       // 123
+    parseInt("101", 2);    // 5 (binary 101 is 5 in decimal)
+
+    // Float
+    parseFloat("123.45");  // 123.45
+
+    // Unary `+` operator
+    +("123");             // 123
+    +("123.45");          // 123.45
+    +("abc");             // NaN (Not-a-Number)
+    ```
+- String
+    ```js
+    // String Coercion
+    String(123);          // "123"
+    String(true);        // "true"
+    String(null);        // "null"
+
+    // using `toString()`
+    (123).toString();    // "123"
+    (true).toString();  // "true"
+
+    // Concatenation with a string
+    123 + "abc";         // "123abc"
+    true + "abc";        // "trueabc"
+    ```
+- Boolean
+    ```js
+    // Boolean Coercion
+    Boolean(1);          // true
+    Boolean(0);          // false
+    Boolean("");         // false
+    Boolean("non-empty"); // true
+    Boolean(null);      // false
+    Boolean(undefined); // false
+
+    // NOT operator twice
+    !!1;                // true
+    !!0;                // false
+    !!"non-empty";      // true
+    ```
+- Null
+    ```js
+    // Null Coercion 
+    Boolean(null);      // false
+    String(null);       // "null"
+    Number(null);       // 0
+    ```
+- Undefined
+    ```js
+    // Undefined Coercion
+    Boolean(undefined); // false
+    String(undefined);  // "undefined"
+    Number(undefined);  // NaN
+    ```
+- Coercion in Operations
+    ```js
+    // Coercion in Operations
+    5 + "5";           // "55"
+    "5" + 5;           // "55"
+
+    // If operands are not numbers, they are coerced to numbers
+    "5" - 2;           // 3
+    "5" * "2";         // 10
+    "5" / "2";         // 2.5
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Double equal Vs triple equal
+- `==` Vs `===`
+    ```js
+    // Double equal vs triple equal 
+    {
+    const a=1
+    const b="1"
+    console.log(a==b); // true
+
+    const c=0 // also true for `""`
+    const d=false
+    console.log(c==d); // true
+    }
+    ```
+- To prevent type coercion `===` used
+    ```js
+    // To prevent type coercion `===` used
+    {
+    const a=1
+    const b="1"
+    console.log(a===b); // false
+
+    const c=0 // also false for `""`
+    const d=false
+    console.log(c===d); // false
+    }
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### NaN
+- Nothing is equal to `NaN`
+    ```js
+    const a = parseInt("awfawgwa")
+    console.log(a); // NaN
+    console.log(a===NaN); // false
+    ```
+- To check NaN `isNaN` is used
+    ```js
+    // NaN 
+    const a = parseInt("awfawgwa")
+    console.log(a); // NaN
+    console.log(a===NaN); // false
+    console.log(isNaN(a)); // true
     ```
 
   [⬆️ Go to top](#beginner-section-topics)
