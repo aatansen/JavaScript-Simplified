@@ -50,6 +50,12 @@
 - [Type Coercion](#type-coercion)
 - [== Vs ===](#double-equal-vs-triple-equal)
 - [NaN](#nan)
+- [Array](#array)
+- [Objects](#objects)
+- [Value Vs Reference](#value-vs-reference)
+- [Array Methods](#array-methods)
+- [String Template Literals](#string-template-literals)
+- [New And This](#new-and-this)
 
 </details>
 
@@ -774,6 +780,289 @@ npm i -g prettier
     console.log(a); // NaN
     console.log(a===NaN); // false
     console.log(isNaN(a)); // true
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Array
+- Creating an array
+    ```js
+    // Array
+    const a =[1,2,3,4,5]
+    console.log(a);
+    ```
+- Accessing element by index
+    ```js
+    // accessing element by index
+    console.log(a[0]);
+    const array1=['a','b','c','d','e']
+    console.log(array1[2]);
+    const array2=[
+        [1,2,3,4,5,6],
+        [7,8,9,10],
+        [11,12,13,14,15],
+    ]
+    console.log(array2[0][4]);
+    console.log(array2[1][2]);
+    console.log(array2[2][3]);
+    ```
+- Adding element in array
+    ```js
+    // add element at the end 
+    a.push(6)
+    console.log(a);
+
+    // add array in array
+    a.push([7,8,9])
+    console.log(a);
+    ```
+- Get the length of an array
+    ```js
+    // length of array
+    console.log(array2.length);
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Objects
+- Without object
+    ```js
+    // Without object
+    let name ="Tansen"
+    const age = 24
+    const favoriteNumber = 7
+    console.log(name,age,favoriteNumber);
+    ```
+- Creating object 
+    ```js
+    // Creating object 
+    let person = {
+        name: "Tansen",
+        age: 24,
+        favoriteNumber: 7,
+    }
+    console.log(person["name"]);
+    ```
+- Adding function in object 
+    ```js
+    // Adding function in object 
+    let person2 = {
+        name: "Tansen",
+        age: 24,
+        favoriteNumber: 7,
+        sayHi:function(){
+            console.log("Hi");
+        },
+        sayHi2(){
+            console.log("Hi 2");
+            
+        }
+    }
+    person2.sayHi()
+    person2.sayHi2()
+    ```
+- Exercise
+    ```js
+    // Exercise
+    /*
+    Create an object called car with the properties
+    1. Make
+    2. Model
+    3. isUsed
+    4. Add a function makeNoise which logs out `Vroom` text
+    */
+    let car={
+        make:"Car1",
+        model:"v1",
+        isUsed:false,
+        makeNoise(){
+            console.log("Vroom");
+        }
+    }
+    console.log(car["make"]);
+    console.log(car.model);
+    ```
+- Adding object,array in object
+    ```js
+    // adding object,array in object
+    let person3 = {
+        name:"Tansen",
+        hobbies:["Programming","Gaming"],
+        address:{
+            street:"12323 street",
+            city:"Dhaka",
+        }
+    }
+    console.log(person3.address.city);
+    console.log(person3.hobbies[1]);
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Value Vs Reference
+- Value
+    ```js
+    // Reference Vs Value 
+    // Value
+    let a =10
+    let b ="Hi"
+    let c =a
+    c=c+1
+    console.log(a);
+    console.log(c);
+    ```
+- Reference (Array)
+    ```js
+    // Array reference
+    let d=[1,2]
+    let e=d
+    e.push(3)
+    console.log(d);
+    console.log(e);
+    ```
+- Reference (Object)
+    ```js
+    // Object reference
+    let obj1={
+        name:"Tansen",
+        age:24,
+    }
+    obj2=obj1
+    obj2.name="Nesnat"
+    console.log(obj1);
+    console.log(obj2);
+    ```
+    - In browser we need to use `JSON.stringify(obj2)` to see the object values
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Array Methods
+- **Array methods does not modify original array**
+- forEach method 
+    ```js
+    // Array Methods
+    // forEach method 
+    a=[1,2,3,4,5]
+    a.forEach((number,index)=>{
+        console.log(index +" "+number);
+    })
+    ```
+    - It take 2 argument but in most use cases only one is used `number`
+- map method
+    ```js
+    // map method 
+    let result_map=a.map(number=>{
+        return number*2
+    })
+    console.log(result_map);
+    ```
+- filter method 
+    ```js
+    // filter method 
+    let result_filter=a.filter(number=>{
+        return number<3
+    })
+    console.log(result_filter);
+    ```
+- find method
+    ```js
+    // find method 
+    let result_find=a.find(number=>{
+        return number<3
+    })
+    console.log(result_find);
+    ```
+- some method
+    ```js
+    // some method 
+    let result_some=a.some(number=>{
+        return number>6
+    })
+    console.log(result_some);
+    ```
+    - If any of the array element have the value then it will return true/false
+- every method
+    ```js
+    // every method 
+    let result_every=a.every(number=>{
+        return number>0
+    })
+    console.log(result_every);
+    ```
+    - Every element of the array is checked
+- reduce method
+    ```js
+    // reduce method 
+    let result_reduce=a.reduce((sum,number)=>{
+        return sum+number
+    },0)
+    console.log(result_reduce);
+    ```
+    - It take 2 arguments where first one need to be set default value `0`
+- includes method
+    ```js
+    // includes method 
+    let isTrue=a.includes(2)
+    console.log(isTrue);
+    ```
+    - If the array include that element than it will return true / false
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### String Template Literals
+- It is used with backticks `${variable_name}`
+    ```js
+    // String Template Literals
+    let name = "Tansen"
+    let age= 24
+    console.log(`name is ${name} and age ${age}`);
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### New And This
+- Using new
+    ```js
+    // New And This
+    // New
+    const date= new Date()
+    console.log(date);
+    console.log(date.getFullYear());
+    ```
+- Using this
+    ```js
+    // This
+    // Normal function
+    function User(name,age){
+        return {
+            name:name,
+            age:age,
+        }
+    }
+    console.log(User("Tansen",24));
+
+    // function constructor
+    function User2(name,age){
+        this.name=name
+        this.age=age
+    }
+    const user1=new User2("Tansen",24)
+    console.log(user1);
+
+    // class construction
+    class User3{
+        constructor(name,age){
+            this.name=name
+            this.age=age
+        }
+        sayHi(){
+            console.log("Hi");
+            
+        }
+    }
+    const user2=new User3("TT",7)
+    console.log(user2);
+    user2.sayHi()
     ```
 
   [⬆️ Go to top](#beginner-section-topics)
