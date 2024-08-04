@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Loading Behavior</title>
+    <!-- Logging Script -->
+    <script src="logging.js"></script>
+    
+    <!-- Normal Script -->
+    <script src="normal.js"></script>
+    
+    <!-- Async Script -->
+    <script src="async.js" async></script>
+    
+    <!-- Defer Script -->
+    <script src="defer.js" defer></script>
+</head>
+<body>
+    <h1>Script Loading Behavior Example</h1>
+
+    <script>
+        console.log('Inline Script: This runs after all previous scripts and HTML have been parsed.');
+    </script>
+</body>
+</html>

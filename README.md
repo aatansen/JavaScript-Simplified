@@ -61,6 +61,12 @@
 
 <details>
 <summary>Basic DOM</summary>
+
+- [Async Vs Defer](#async-vs-defer)
+- [Window](#window)
+- [Document](#document)
+- [Id And Class Selectors](#id-and-class-selectors)
+
 </details>
 
 <details>
@@ -1063,6 +1069,92 @@ npm i -g prettier
     const user2=new User3("TT",7)
     console.log(user2);
     user2.sayHi()
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Async Vs Defer
+- **Inline Script**: This runs after all previous scripts and HTML have been parsed.
+    ```js
+    <script>
+        console.log('Inline Script: This runs after all previous scripts and HTML have been parsed.');
+    </script>
+    ```
+- **Normal Script**: This script blocks the HTML parsing until it finishes loading and executing.
+- **Async Script**: This script loads asynchronously and may run before or after other scripts.
+- **Defer Script**: This script is deferred until after the HTML is fully parsed.
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Window
+- It is global so using `window` keyword or not it will work
+    ```js
+    console.log(window);
+    window.console.log('hi')
+    window.addEventListener("resize",()=>{
+        console.log("resized");
+        
+    })
+    alert("hi")
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Document
+- Get full html document
+    ```js
+    // Get full html document 
+    console.log(document);
+    ```
+- Get only elements of the html document
+    ```js
+    // Get only elements of the html document 
+    console.log(document.documentElement);
+    ```
+- Create new element in html document
+    ```js
+    // Create new element in html document
+    const element = document.createElement("span")
+    element.innerText="Hello World"
+    document.body.appendChild(element)
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Id And Class Selectors
+- Using `getElementById`
+    ```js
+    console.log(document.getElementById("div-id"));
+    ```
+    - If id not valid `null` will be printed in console
+- Modifying id element
+    ```js
+    // Modifying id element
+    const divWithId=document.getElementById("div-id")
+    divWithId.style.color="red"
+    ```
+- Modifying class element (❌)
+    ```js
+    // Modifying class element (❌)
+    divWithClass.forEach(div=>{
+        console.log(div);
+    })
+    ```
+    - This won't work as `divWithClass` is holding html collection not array elements
+- Modifying class element (✅)
+    - To do this first we have to convert the html collection to array using `Array.form()`
+        ```js
+        // Modifying class element (✅)
+        const divWithClassArray = Array.from(divWithClass)
+        divWithClassArray.forEach(div=>{
+            console.log(div);
+            div.style.color="green"
+        })
+        ```
+- We can directly modify without converting to array by accessing single element
+    ```js
+    // accessing html single element
+    divWithClass[0].style.color="blue"
     ```
 
   [⬆️ Go to top](#beginner-section-topics)
