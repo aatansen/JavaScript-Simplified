@@ -66,6 +66,9 @@
 - [Window](#window)
 - [Document](#document)
 - [Id And Class Selectors](#id-and-class-selectors)
+- [Query Selectors](#query-selectors)
+- [Event Listeners](#event-listeners)
+- [Additional Differences Between Arrow And Normal Functions](#additional-differences-between-arrow-and-normal-functions)
 
 </details>
 
@@ -1155,6 +1158,122 @@ npm i -g prettier
     ```js
     // accessing html single element
     divWithClass[0].style.color="blue"
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Query Selectors
+- Get attribute element using `querySelector`
+    ```js
+    // Get attribute element using `querySelector`
+    const dataAttributeElement = document.querySelector('[data-test')
+    console.log(dataAttributeElement);
+    ```
+- Get class element using `querySelector`
+    ```js
+    // Get class element using `querySelector`
+    const divWithClass = document.querySelector('.div-class')
+    console.log(divWithClass);
+    ```
+- Get class element using `querySelector`
+    ```js
+    // Get class element using `querySelector`
+    const divWithClasses = document.querySelectorAll('.div-class')
+    console.log(divWithClasses);
+    divWithClasses.forEach(div=>{
+    console.log(div);
+    div.style.color="red"
+    })
+    ```
+- Get input element using `querySelector`
+    ```js
+    // Get input element using `querySelector`
+    const input = document.querySelector("body > input[type='Text']")
+    console.log(input);
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Event Listeners
+- Add event listener in button
+    ```js
+    // Add event listener in button
+    const btn =document.querySelector('[data-btn]')
+    btn.addEventListener('click',()=>{
+        console.log("clicked");
+        
+    })
+    ```
+- Remove event listener in button 
+    ```js
+    // Remove event listener in button 
+    function printClicked(){
+        console.log("Clicked");
+    }
+    btn.addEventListener('click', printClicked)
+    btn.removeEventListener('click',printClicked)
+    ```
+- view all event
+    ```js
+    // view all event 
+    btn.addEventListener('click',e =>{
+        console.log(e)
+    })
+    ```
+- Input event
+    ```js
+    // Input event 
+    const input = document.querySelector('[data-input-text]')
+    input.addEventListener('change',()=>{
+        console.log("changed")
+    })
+    input.addEventListener('input',()=>{
+        console.log("text inputed")
+    })
+    // Check input empty of not 
+    input.addEventListener('input',e=>{
+        console.log(e.target.value==="")
+    })
+    ```
+- form event prevent default behavior using `preventDefault()`
+    ```js
+    // form event prevent default behavior using `preventDefault()`
+    const form = document.querySelector("[data-form]")
+    form.addEventListener('submit',e=>{
+        e.preventDefault()
+        console.log("form submitted")
+    })
+    ```
+- Removing default behavior of anchor tag link click using `preventDefault()`
+    ```js
+    // Removing default behavior of anchor tag link click using `preventDefault()`
+    const link = document.querySelector("[data-link]")
+    link.addEventListener("click",e=>{
+        e.preventDefault()
+        console.log("Link clicked");
+    })
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Additional Differences Between Arrow And Normal Functions
+- In arrow function this behave as global 
+- In normal function this behave as local
+    ```js
+    // Additional Differences Between Arrow And Normal Functions
+    const btn = document.querySelector('[data-btn]')
+    btn.addEventListener('click', e=>{
+        console.log("Arrow This:");
+        console.log(this);
+    })
+
+    btn.addEventListener('click', function (e){
+        console.log("Function This:");
+        console.log(this);
+    })
+
+    // this and window both global scope 
+    console.log(this === window);
     ```
 
   [⬆️ Go to top](#beginner-section-topics)
