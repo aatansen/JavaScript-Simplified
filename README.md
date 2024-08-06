@@ -1167,7 +1167,7 @@ npm i -g prettier
 - Get attribute element using `querySelector`
     ```js
     // Get attribute element using `querySelector`
-    const dataAttributeElement = document.querySelector('[data-test')
+    const dataAttributeElement = document.querySelector('[data-test]')
     console.log(dataAttributeElement);
     ```
 - Get class element using `querySelector`
