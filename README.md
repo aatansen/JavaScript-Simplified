@@ -70,6 +70,9 @@
 - [Event Listeners](#event-listeners)
 - [Additional Differences Between Arrow And Normal Functions](#additional-differences-between-arrow-and-normal-functions)
 - [Data Attributes](#data-attributes)
+- [DOM Traversal](#dom-traversal)
+- [Simple Todo List](#simple-todo-list)
+- [Modal Walkthrough](#modal-walkthrough)
 
 </details>
 
@@ -1309,6 +1312,120 @@ npm i -g prettier
         })
         
     })
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### DOM Traversal
+- Selecting and modifying grand parent 
+    ```js
+    // Selecting and modifying grand parent 
+    const grandParent = document.querySelector('#grand-parent')
+    console.log(grandParent);
+    grandParent.style.color="red"
+    ```
+- Get grand parent child and modify style from html collection
+    ```js
+    // Get grand parent child and modify style from html collection
+    console.log(grandParent.children);
+    const parentOne = grandParent.children[0]
+    const parentTwo = grandParent.children[1]
+    parentOne.style.color='blue'
+    parentTwo.style.color='yellow'
+    ```
+- Modifying child using element sibling 
+    ```js
+    // modifying child using element sibling 
+    parentTwo2=parentOne.nextElementSibling
+    parentTwo2.style.color='orange'
+    ```
+- Get parent from child select
+    ```js
+    // get parent from child select
+    const childOne = document.querySelector("#child-one")
+    console.log(childOne);
+    parentOne1=childOne.parentElement
+    console.log(parentOne1);
+    ```
+- Get grand parent from child select using closest
+    ```js
+    // get grand parent from child select using closest
+    const grandParent1=childOne.closest("#grand-parent")
+    console.log(grandParent1);
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Simple Todo List
+- Step by step to-do list
+    ```js
+    // Select all element
+    const form = document.querySelector('#new-item-form')
+    const list = document.querySelector("#list")
+    const input= document.querySelector("#item-input")
+
+    // When submit the form add a new element
+    form.addEventListener('submit', e =>{
+        e.preventDefault()
+        console.log(input.value);
+        
+        // Create new item
+        const item = document.createElement('div')
+        if (input.value !==""){
+            item.innerText = input.value
+            item.classList.add('list-item')
+            console.log(item);
+            // Add that item to the list
+            list.appendChild(item)
+        }
+
+        // Clear input after adding
+        input.value = ""
+
+        // Setup event listener to delete item when clicked
+        item.addEventListener("click", ()=>{
+            // list.removeChild(item)
+            item.remove()
+        })
+    })
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Modal Walkthrough
+- Step by step modal walkthrough
+    ```js
+    /*
+    TODO: 2. Select the elements with the following IDs
+        * modal
+        * open-modal-btn
+        * close-modal-btn
+        * BONUS: overlay
+    */
+    const modal = document.querySelector('#modal')
+    const openModalBtn = document.querySelector('#open-modal-btn')
+    const closeModalBtn = document.querySelector('#close-modal-btn')
+    const overlay = document.querySelector('#overlay')
+
+    // TODO: 3. Create a click event listener for the open-modal-btn that adds the class "open" to the modal
+    // BONUS: Also add the class "open" to the overlay
+    openModalBtn.addEventListener("click",()=>{
+    modal.classList.add("open")
+    overlay.classList.add("open")
+    })
+
+    // TODO: 4. Create a click event listener for the close-modal-btn that removes the class "open" from the modal
+    // BONUS: Also remove the class "open" from the overlay
+    closeModalBtn.addEventListener("click",closeModal)
+
+    // BONUS: Add a click event listener to the overlay that removes the class "open" from the modal and the overlay
+    overlay.addEventListener("click",closeModal)
+
+    // function to close modal
+    function closeModal(){
+    modal.classList.remove("open")
+    overlay.classList.remove("open")
+    }
     ```
 
   [⬆️ Go to top](#beginner-section-topics)
