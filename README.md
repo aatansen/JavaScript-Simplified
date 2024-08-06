@@ -69,6 +69,7 @@
 - [Query Selectors](#query-selectors)
 - [Event Listeners](#event-listeners)
 - [Additional Differences Between Arrow And Normal Functions](#additional-differences-between-arrow-and-normal-functions)
+- [Data Attributes](#data-attributes)
 
 </details>
 
@@ -1274,6 +1275,40 @@ npm i -g prettier
 
     // this and window both global scope 
     console.log(this === window);
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Data Attributes
+- Get data attribute `DOMStringMap`
+    ```js
+    // Get data attribute `DOMStringMap`
+    const test=document.querySelector("[data-test]")
+    console.log(test.dataset);
+    ```
+- Read individual data from data attribute
+    ```js
+    // Read individual data from data attribute
+    console.log(test.dataset.test);
+    ```
+- Change data attribute value (visible in elements tab of browser devtool)
+    ```js
+    // change data attribute value
+    test.dataset.testTwo='321'
+    ```
+- Button click count
+    ```js
+    // Button click count
+    const btns = document.querySelectorAll('button')
+    btns.forEach(btn=>{
+        // console.log(btn);
+        btn.addEventListener("click",()=>{
+            // console.log(btn.dataset.clicks);
+            const currentClicks=parseInt(btn.dataset.clicks)
+            btn.dataset.clicks = currentClicks+1
+        })
+        
+    })
     ```
 
   [⬆️ Go to top](#beginner-section-topics)
