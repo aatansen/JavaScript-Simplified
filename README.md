@@ -82,6 +82,12 @@
 - [If else](#if-else)
 - [Ternary Operator](#ternary-operator)
 - [Switch Statement](#switch-statement)
+- [For Loop](#for-loop)
+- [While loop](#while-loop)
+- [Recursion](#recursion)
+- [Short Circuit Evaluation](#short-circuit-evaluation)
+- [Quiz app walkthrough](#quiz-app-walkthrough)
+- [Form Validation Walkthrough](#form-validation-walkthrough)
 
 </details>
 
@@ -1560,6 +1566,358 @@ npm i -g prettier
         default:
         console.log("try again");
     }
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### For Loop
+- For loop
+    ```js
+    // for loop
+    for(let i=0;i<5;i++){
+        console.log("Hi");
+    }
+    ```
+- Loop through array using for loop
+    ```js
+    // loop through array using for loop
+    const arr=[1,2,3,4,5,6]
+    for(let i=0;i<arr.length;i++){
+        console.log(arr[i]);
+    }
+    ```
+- Loop through array using `forEach`
+    ```js
+    // loop through array using `forEach`
+    arr.forEach(num=>{
+        console.log(num);
+    })
+    ```
+- Exercise
+    ```js
+    /* 
+    Exercise
+    Create a for loop that loops from 0 to 10 and prints out all values from 0 to 10 
+    Modify this loop and exit the loop when the value is equal to 5 by using break 
+    */
+    for(let i=0;i<=10;i++){
+        console.log(i);
+        if (i===5) break
+    }
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### While loop
+- For loop to while loop
+    ```js
+    // for loop
+    for(let i=0;i<5;i++){
+        console.log(i);
+    }
+
+    // while loop
+    let j=0
+    while(j<5){
+        console.log(j);
+        j++
+    }
+    ```
+- Example
+    ```js
+    // Example
+    const person = {
+        name:'Tansen',
+        friend:{
+            name:'Boch',
+            friend:{
+                name:'Sally',
+            }
+        }
+    }
+
+    let currentPerson=person
+    while(currentPerson!=null){
+        console.log(currentPerson.name);
+        currentPerson=currentPerson.friend
+    }
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Recursion
+- Stack Overflow Error 
+    ```js
+    // Stack Overflow Error 
+    function printHi(){
+        console.log("Hi");
+        printHi()
+    }
+    printHi()
+    ```
+- Example 01 countdown
+    ```js
+    // Example 01 countdown
+    // for loop 
+    for (let i=1;i<=10;i++){
+        console.log(i);
+    }
+
+    // using recursion 
+    function printNumber(number){
+        if (number>10) return
+        console.log(number);
+        printNumber(number+1)
+        // console.log(number);
+    }
+    printNumber(1)
+
+    function countDown(num){
+        if (num<0){
+            return console.log("Whats up");
+            
+        }
+        console.log(num);
+        countDown(num-1)
+        
+    }
+    countDown(10)
+    ```
+- Example 02 sum
+    ```js
+    // Example 02 sum
+    function sum(num){
+        if (num<=0){
+            return 0
+        }
+        return num+sum(num-1)
+    }
+    console.log(sum(5));
+    ```
+- Example 03 person names 
+    ```js
+    // Example 03 person names 
+    const person={
+        name:"Tansen",
+        friend:{
+            name:"Boch",
+            friend:{
+                name:"Shakil",
+            }
+        }
+    }
+
+    let currentPerson=person
+
+    while(currentPerson!=null){
+        console.log(currentPerson.name);
+        currentPerson=currentPerson.friend
+        
+    }
+
+    // using recursive
+    function showName(currentPerson){
+        if (currentPerson==null){
+            return
+        }
+        console.log(currentPerson.name);
+        showName(currentPerson.friend)
+    }
+    showName(person)
+
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Short Circuit Evaluation
+- Logical AND (`&&`)
+    ```js
+    // Logical AND (`&&`)
+    function expensiveFunction() {
+        console.log("Expensive function called");
+        return true;
+    }
+    
+    let condition = false;
+    
+    if (condition && expensiveFunction()) {
+        console.log("Condition is true and expensiveFunction returned true");
+    } else {
+        console.log("Condition is false or expensiveFunction returned false");
+    }
+    ```
+- Logical OR (`||`)
+    ```js
+    // Logical OR (`||`)
+    function fallbackValue() {
+        console.log("Fallback function called");
+        return "default";
+    }
+    
+    let value = null;
+    
+    let result = value || fallbackValue();
+    
+    console.log(result);
+    ```
+- Conditional Execution
+    ```js
+    // Conditional Execution
+    let user = {
+        name: "Alice",
+        isAdmin: true
+    };
+    
+    user.isAdmin && console.log(`${user.name} is an admin`);
+    ```
+- Function Argument Defaults
+    ```js
+    // Function Argument Defaults
+    function greet(name) {
+        name = name || "Guest";
+        console.log(`Hello, ${name}!`);
+    }
+    
+    greet("John"); // Output: Hello, John!
+    greet();       // Output: Hello, Guest!
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Quiz app walkthrough
+- Quiz app walkthrough step by step
+    ```js
+    /*
+    TODO: 2. Select all elements needed
+        * The form element (has the id `quiz-form`)
+        * The answer inputs (have the class `answer`)
+        * BONUS: The questions (have the class `question-item`)
+        * BONUS: The alert (has the id `alert`)
+    */
+    const form = document.querySelector("#quiz-form")
+    const answers=Array.from(document.querySelectorAll(".answer")) // HTML collection converted to array
+    const questions=document.querySelectorAll(".question-item")
+    const alert=document.querySelector("#alert")
+
+    // TODO: 3. Create a submit event listener for the form that does the following.
+
+    form.addEventListener("submit",e=>{
+    //    1. Prevent the default behaviour
+    e.preventDefault()
+    
+    //    6. BONUS: Make sure unanswered questions show up as incorrect. The easiest way to do this is to add the incorrect class and removing the correct class from all question items before checking the correct answers
+    questions.forEach(question=>{
+        question.classList.add("incorrect")
+    })
+
+    //    2. Get all selected answers (use the `checked` property on the input to determine if it is selected or not)
+    const checkedAnswers=answers.filter(answer=>answer.checked)
+    console.log(checkedAnswers);
+    
+    //    3. Loop through the selected answer to see if they are correct or not (Check the value of the answer to see if it is the string "true")
+    checkedAnswers.forEach(answer=>{
+        const isCorrect = answer.value === "true"
+        const questionItem=answer.closest(".question-item")
+        
+        //    4. For each correct answer add the class `correct` to the parent with the class `question-item` and remove the class `incorrect`.
+        if (isCorrect){
+        questionItem.classList.add("correct")
+        questionItem.classList.remove("incorrect")      
+        }else{
+        //    5. For each incorrect answer add the class `incorrect` to the parent with the class `question-item` and remove the class `correct`.
+        questionItem.classList.add("incorrect")      
+        questionItem.classList.remove("correct")      
+        }
+
+        //    7. BONUS: If all answers are correct show the element with the id `alert` and hide it after one second (look into setTimeout) (use the class active to show the alert and remove the class to hide it)
+        const allCorrect=checkedAnswers.every(answer=> answer.value === "true")
+        const allAnswered = checkedAnswers.length === questions.length
+        console.log(allCorrect);
+        
+        if (allCorrect && allAnswered){
+        alert.classList.add("active")
+        setTimeout(()=>{
+            alert.classList.remove("active")
+        },1000)
+        }
+    })
+    })
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Form Validation Walkthrough
+- Form validation walkthrough step by step
+    ```js
+    // TODO: Select all elements needed
+    //    Use the HTML to figure out what classes/ids will work best for selecting each element
+    const form = document.querySelector("#form")
+    const usernameInput=document.querySelector("#username")
+    const passwordInput=document.querySelector("#password")
+    const passwordConfirmInput=document.querySelector("#password-confirmation")
+    const termsInput=document.querySelector("#terms")
+    const errorsContainer=document.querySelector(".errors")
+    const errorsList=document.querySelector(".errors-list")
+    // TODO: Create an event listener for when the form is submitted and do the following inside of it.
+    form.addEventListener("submit",e=>{
+    //    TODO: Create an array to store all error messages and clear any old error messages
+    const errorMessages=[]
+    clearErrors()
+    //    TODO: Define the following validation checks with appropriate error messages
+    //      1. Ensure the username is at least 6 characters long
+    if (usernameInput.value.length<6){
+        errorMessages.push("Username must be at least 6 characters")
+    }
+    //      2. Ensure the password is at least 10 characters long
+    if (passwordInput.value.length<10){
+        errorMessages.push("Password must be at least 10 characters")
+    }
+    //      3. Ensure the password and confirmation password match
+    if (passwordInput.value!==passwordConfirmInput.value){
+        errorMessages.push("Password and confirmation password not matched")
+    }
+    //      4. Ensure the terms checkbox is checked
+    if (!termsInput.checked){
+        errorMessages.push("Term checkbox is not checked")
+    }
+    console.log(errorMessages);
+    if (errorMessages.length>0){
+        e.preventDefault()
+        showErrors(errorMessages)
+    }
+    //    TODO: If there are any errors then prevent the form from submitting and show the error messages
+    })
+
+    // TODO: Define this function
+    function clearErrors() {
+    // Loop through all the children of the error-list element and remove them
+    // IMPORTANT: This cannot be done with a forEach loop or a normal for loop since as you remove children it will modify the list you are looping over which will not work
+    // I recommend using a while loop to accomplish this task
+    // This is the trickiest part of this exercise so if you get stuck and are unable to progress you can also set the innerHTML property of the error-list to an empty string and that will also clear the children. I recommend trying to accomplish this with a while loop, though, for practice.
+    // Also, make sure you remove the show class to the errors container
+    
+    // easy way:
+    // errorsList.innerHTML=""
+
+    while(errorsList.children[0]!=null){
+        errorsList.removeChild(errorsList.children[0])
+    }
+    errorsContainer.classList.remove("show")
+    }
+
+    // TODO: Define this function
+    function showErrors(errorMessages) {
+    // Add each error to the error-list element
+    // Make sure to use an li as the element for each error
+    // Also, make sure you add the show class to the errors container
+    errorMessages.forEach(errorMessage=>{
+        const li=document.createElement('li')
+        li.innerText=errorMessage
+        errorsList.appendChild(li)
+    })
+    errorsContainer.classList.add("show")
+    }
+
     ```
 
   [⬆️ Go to top](#beginner-section-topics)
