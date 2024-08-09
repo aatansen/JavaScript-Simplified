@@ -93,6 +93,9 @@
 
 <details>
 <summary>Asynchronous Code</summary>
+
+- [Callback](#callback)
+
 </details>
 
 <details>
@@ -1918,6 +1921,51 @@ npm i -g prettier
     errorsContainer.classList.add("show")
     }
 
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+### Asynchronous Code
+#### Callback
+- Callback async
+    ```js
+    // Callback async
+    // `setTimeout` async 
+    setTimeout(()=>{
+        console.log("Inside");
+        
+    },1000)
+    console.log("Outside");
+
+    // `addEventListener` async
+    const btn =document.querySelector("button")
+    btn.addEventListener("click",()=>{
+        console.log("Clicked");
+        
+    })
+    ```
+- Creating function to call the callback async 
+    ```js
+    // creating function to call the callback async 
+    function addClickEventListener(element,callback){
+        element.addEventListener("click",callback)
+    }
+    addClickEventListener(btn,()=>{
+        console.log("clicked");
+    })
+    ```
+- Callback hell (can be prevented using promise)
+    ```js
+    // callback hell (can be prevented using promise)
+    setTimeout(()=>{
+        console.log("1st callback");
+        setTimeout(()=>{
+            console.log("2nd callback");
+            setTimeout(()=>{
+                console.log("3rd callback");
+            },1000)
+        },1000)
+    },1000)
     ```
 
   [⬆️ Go to top](#beginner-section-topics)
