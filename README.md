@@ -104,6 +104,7 @@
 <summary>Advanced DOM</summary>
 
 - [Fetch](#fetch)
+- [Event loop](#event-loop)
 
 </details>
 
@@ -2308,5 +2309,34 @@ npm i -g prettier
     }
     getComments()
     ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Event loop
+- Main thread vs task queue
+    - Main thread run all the code
+    - Task queue execute one by one
+    - Task queue wait for other to run first in main thread then run
+        ```js
+        // Main thread vs task queue 
+        function test(){
+            console.log("Hi 1");
+            console.log("Hi 2");
+            setTimeout(()=>{
+                console.log("Hi 3");
+            },10)
+            new Promise((resolve,reject)=>{
+                resolve("Hi promise")
+            }).then(message=>{
+                console.log(message);
+            })
+            setTimeout(()=>{
+                console.log("Hi 4");
+            },0)
+            console.log("Hi 5");
+        }
+        test()
+        ```
+    - In the task queue promise run first then callback run
 
   [⬆️ Go to top](#beginner-section-topics)
