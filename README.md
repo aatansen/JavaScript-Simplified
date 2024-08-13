@@ -106,6 +106,7 @@
 - [Fetch](#fetch)
 - [Event loop](#event-loop)
 - [Event Delegation](#event-delegation)
+- [Browser Storage](#browser-storage)
 
 </details>
 
@@ -2376,6 +2377,43 @@ npm i -g prettier
             console.log("Clicked button 5");
         }
     })
+    ```
+
+  [⬆️ Go to top](#beginner-section-topics)
+
+#### Browser Storage
+
+| Storage Type    | Capacity | Expiration          | Scope         | Ease of Use |
+|-----------------|----------|---------------------|---------------|-------------|
+| **Local Storage** | 10MB     | Never Expires       | Client        | Easy        |
+| **Cookies**       | 4KB     | Manual Expiration   | Client/Server | Hard        |
+| **Session Storage**| 5MB     | Expire on tab close | Client        | Easy        |
+
+- Local storage
+    ```js
+    // Local storage
+    localStorage.setItem('Name','Tansen')
+    ```
+- Session storage
+    ```js
+    // Session storage
+    sessionStorage.setItem('Age','24')
+    ```
+- Update value of Local/Session storage
+    ```js
+    // update value 
+    localStorage.setItem('Name','Alahi')
+    sessionStorage.setItem('Age','24')
+    // Show in console
+    console.log(localStorage.getItem("Name"));
+    ```
+- Cookies
+    ```js
+    // Cookies
+    const date=new Date(9999,0,1).toUTCString()
+    console.log(date);
+    document.cookie=`name=Tansen; expires=${date}`
+    console.log(document.cookie);
     ```
 
   [⬆️ Go to top](#beginner-section-topics)
